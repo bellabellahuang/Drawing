@@ -1,6 +1,6 @@
 import json
 from pygal.maps.world import World 
-from pygal.style import RotateStyle
+from pygal.style import RotateStyle as RS, LightColorizedStyle as LCS
 
 from country_codes import get_country_code
 
@@ -26,7 +26,7 @@ for cc, pop in cc_populations.items():
 	else:
 		cc_pops_3[cc] = pop
 
-wm_style = RotateStyle('#336699')
+wm_style = RS('#336699', base_style=LCS)
 wm = World(style=wm_style)
 wm.title = 'World Population in 2010, by Country'
 wm.add('0-10m', cc_pops_1)
